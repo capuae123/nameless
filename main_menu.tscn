@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://ctnkews3paj3b"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_bi532"]
-[ext_resource type="Texture2D" uid="uid://ix52cf0m0sk" path="res://image (5).png" id="1_ctbdk"]
 [ext_resource type="FontFile" uid="uid://dduptoo1qbjb5" path="res://PixelatedPusab.ttf" id="2_6qwrr"]
+[ext_resource type="Texture2D" uid="uid://c6nja1dx8sdsg" path="res://Cover art.png" id="2_ru0cs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60kwg"]
-texture = ExtResource("1_ctbdk")
-modulate_color = Color(0.47788, 0.47788, 0.47788, 1)
+texture = ExtResource("2_ru0cs")
+modulate_color = Color(0.834614, 0.834614, 0.834614, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jlm64"]
 
@@ -57,17 +57,14 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_60kwg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -165.0
-offset_top = -102.0
-offset_right = 165.0
-offset_bottom = 102.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -244.0
+offset_right = 377.0
+offset_bottom = -25.0
+grow_vertical = 0
 theme_override_constants/separation = 9
 
 [node name="Button" type="Button" parent="VBoxContainer"]

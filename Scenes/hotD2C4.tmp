@@ -8,7 +8,6 @@
 scale = Vector2(6.695, 6.695)
 script = ExtResource("1_326yp")
 burst_scene = ExtResource("2_jv1u1")
-burst_time = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

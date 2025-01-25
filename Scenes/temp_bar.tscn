@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://lbp3n5nsxgqq"]
+
+[ext_resource type="Script" path="res://Scripts/temp_bar.gd" id="1_3m7tx"]
+[ext_resource type="Texture2D" uid="uid://diin3qps0wumk" path="res://Assets/temp_bar.png" id="1_ito7b"]
+[ext_resource type="Texture2D" uid="uid://fx5y3dykroq2" path="res://Assets/indicator.png" id="2_h3uc7"]
+
+[node name="TempBar" type="Node2D"]
+script = ExtResource("1_3m7tx")
+
+[node name="Bar_Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ito7b")
+
+[node name="Indicator_Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_h3uc7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 68.0
+offset_top = -11.0
+offset_right = 108.0
+offset_bottom = 12.0

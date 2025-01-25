@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv0ux46a4ag1j"]
+
+[ext_resource type="Script" path="res://Scripts/btn_windmill.gd" id="1_evfri"]
+[ext_resource type="Texture2D" uid="uid://br8y55ky75vaw" path="res://Assets/transparent_inventory_box.png" id="1_ssjcx"]
+[ext_resource type="Texture2D" uid="uid://djedok30yn42x" path="res://Assets/windmill.png" id="2_5ihr3"]
+[ext_resource type="PackedScene" uid="uid://cwvlspjjt2fgh" path="res://Scenes/windmill.tscn" id="2_axmo0"]
+
+[node name="Btn_Windmill" type="Button"]
+offset_right = 15.0
+offset_bottom = 15.0
+script = ExtResource("1_evfri")
+child_scene = ExtResource("2_axmo0")
+
+[node name="Inventory_Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(7.5, 7.5)
+scale = Vector2(0.46875, 0.46875)
+texture = ExtResource("1_ssjcx")
+
+[node name="Windmill_Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.75, 7.5)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("2_5ihr3")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

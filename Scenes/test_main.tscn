@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://curj2vk54e7e5"]
+
+[ext_resource type="PackedScene" uid="uid://c4pi1yr58ghd7" path="res://Scenes/Energy.tscn" id="1_p4y0a"]
+[ext_resource type="PackedScene" uid="uid://cwvlspjjt2fgh" path="res://Scenes/windmill.tscn" id="2_kasl7"]
+[ext_resource type="PackedScene" uid="uid://bv0ux46a4ag1j" path="res://Scenes/btn_windmill.tscn" id="3_0asya"]
+[ext_resource type="PackedScene" uid="uid://bahxxvipa461d" path="res://Scenes/btn_weapon_upgrade.tscn" id="4_qm01f"]
+[ext_resource type="PackedScene" uid="uid://lbp3n5nsxgqq" path="res://Scenes/temp_bar.tscn" id="5_4wlmg"]
+[ext_resource type="PackedScene" uid="uid://dhistymeniayq" path="res://Scenes/player2.tscn" id="6_n83yk"]
+[ext_resource type="PackedScene" uid="uid://bqtbrh6b4slei" path="res://Scenes/boar.tscn" id="7_pfa53"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Energy" parent="." instance=ExtResource("1_p4y0a")]
+
+[node name="Windmill" parent="." instance=ExtResource("2_kasl7")]
+position = Vector2(150, 240)
+
+[node name="Btn_Windmill" parent="." instance=ExtResource("3_0asya")]
+offset_left = 17.0
+offset_top = 117.0
+offset_right = 32.0
+offset_bottom = 132.0
+
+[node name="Btn_WeaponUpgrade" parent="." instance=ExtResource("4_qm01f")]
+offset_left = 21.0
+offset_top = 135.0
+offset_right = 29.0
+offset_bottom = 143.0
+
+[node name="TempBar" parent="." instance=ExtResource("5_4wlmg")]
+position = Vector2(404, 131)
+scale = Vector2(2, 2)
+
+[node name="Player2" parent="." instance=ExtResource("6_n83yk")]
+position = Vector2(466, 233)
+
+[node name="boar" parent="." instance=ExtResource("7_pfa53")]
+position = Vector2(346, 259)

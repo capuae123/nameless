@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0eqk4me5s7fk"]
+
+[ext_resource type="Script" path="res://Scenes/hot_bubble.gd" id="1_326yp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k7k7h"]
+
+[node name="HotBubble" type="Node2D"]
+scale = Vector2(6.695, 6.695)
+script = ExtResource("1_326yp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.0901961, 0.121569, 1)
+texture = SubResource("CanvasTexture_k7k7h")

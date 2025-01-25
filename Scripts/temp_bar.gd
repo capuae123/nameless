@@ -19,4 +19,3 @@ func _process(delta: float) -> void:
 	if temp <= 55 and temp >= -55:
 		label.text = str(temp)+"°C"
 		indicator.position = Vector2i(temp,0)
-	print(temp)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=82 format=3 uid="uid://bqtbrh6b4slei"]
+[gd_scene load_steps=89 format=3 uid="uid://bqtbrh6b4slei"]
 
 [ext_resource type="Texture2D" uid="uid://j64dwlm7ddip" path="res://Assets/critters/critters/boar/boar_NE_idle_strip.png" id="1_0ssjy"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_tkck3"]
 [ext_resource type="Texture2D" uid="uid://b6m1o61m6nlko" path="res://Assets/critters/critters/boar/boar_NE_death.png" id="1_ttrm3"]
 [ext_resource type="Texture2D" uid="uid://cmpyaod38myca" path="res://Assets/critters/critters/boar/boar_NW_death.png" id="2_tn2d0"]
 [ext_resource type="Texture2D" uid="uid://ca7kklfashn7c" path="res://Assets/critters/critters/boar/boar_SE_death.png" id="3_hc0j5"]
@@ -12,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://c7jh6cgb16gaw" path="res://Assets/critters/critters/boar/boar_NW_run_strip.png" id="8_fv2n2"]
 [ext_resource type="Texture2D" uid="uid://cv2ncc2g5alow" path="res://Assets/critters/critters/boar/boar_SE_run_strip.png" id="9_1iwbi"]
 [ext_resource type="Texture2D" uid="uid://2chs0ahnicu4" path="res://Assets/critters/critters/boar/boar_SW_run_strip.png" id="10_8qjit"]
+[ext_resource type="PackedScene" uid="uid://do4l1opaujml4" path="res://Scenes/player_detection_zone.tscn" id="13_6uwxe"]
+[ext_resource type="PackedScene" uid="uid://chl02181feslw" path="res://Scenes/stats.tscn" id="13_dbwbl"]
+[ext_resource type="PackedScene" uid="uid://bdhi6p21p0jcb" path="res://Scenes/kill_zone.tscn" id="16_6w5lh"]
+[ext_resource type="PackedScene" uid="uid://fnnc8y4y13ls" path="res://Scenes/wander_control.tscn" id="17_08ilk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nk885"]
 atlas = ExtResource("1_ttrm3")
@@ -552,8 +557,36 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqp1m"]
+radius = 59.0085
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ffltp"]
+radius = 10.0499
+
 [node name="boar" type="CharacterBody2D"]
+script = ExtResource("1_tkck3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x12pm")
 animation = &"death_SW"
+
+[node name="stats" parent="." instance=ExtResource("13_dbwbl")]
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource("13_6uwxe")]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+visibility_layer = 2
+shape = SubResource("CircleShape2D_aqp1m")
+
+[node name="KillZone" parent="." instance=ExtResource("16_6w5lh")]
+visibility_layer = 2
+
+[node name="CollisionShape2D" parent="KillZone" index="0"]
+light_mask = 0
+position = Vector2(-5, 2)
+shape = SubResource("CircleShape2D_ffltp")
+
+[node name="wander_control" parent="." instance=ExtResource("17_08ilk")]
+
+[editable path="PlayerDetectionZone"]
+[editable path="KillZone"]

@@ -5,11 +5,11 @@ extends Node2D
 
 func is_windy():
 	timer.start(10)
-	print("timer started")
+	#print("timer started")
 
 func _on_timer_timeout() -> void:
 	data.add_energy()
-	print("timer stopped")
+	#print("timer stopped")
 
 func _ready() -> void:
 	await is_windy()

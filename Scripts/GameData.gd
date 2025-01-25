@@ -28,10 +28,14 @@ func electric_bubbles():
 
 func get_temp():
 	temp = hot_bubbles - cold_bubbles
-	if temp < 55:
-		temp = 55
-	elif temp > -55:
-		temp = -55
+	if temp <= 55 and temp >= -55:
+		return temp
+	else:
+		if temp > 55:
+			temp = 55
+		elif temp < -55:
+			temp = -55
+		return temp
 
 func change_temp(n):
 	temp += n

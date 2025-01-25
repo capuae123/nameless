@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://curj2vk54e7e5"]
+[gd_scene load_steps=9 format=3 uid="uid://curj2vk54e7e5"]
 
 [ext_resource type="PackedScene" uid="uid://c4pi1yr58ghd7" path="res://Scenes/Energy.tscn" id="1_p4y0a"]
 [ext_resource type="PackedScene" uid="uid://cwvlspjjt2fgh" path="res://Scenes/windmill.tscn" id="2_kasl7"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bahxxvipa461d" path="res://Scenes/btn_weapon_upgrade.tscn" id="4_qm01f"]
 [ext_resource type="PackedScene" uid="uid://lbp3n5nsxgqq" path="res://Scenes/temp_bar.tscn" id="5_4wlmg"]
 [ext_resource type="PackedScene" uid="uid://dhistymeniayq" path="res://Scenes/player2.tscn" id="6_n83yk"]
+[ext_resource type="Script" path="res://Scripts/DisasterLayer.gd" id="7_6w7ww"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lw458"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -32,3 +35,13 @@ scale = Vector2(2, 2)
 
 [node name="Player2" parent="." instance=ExtResource("6_n83yk")]
 position = Vector2(466, 233)
+
+[node name="DisasterLayer" type="CanvasLayer" parent="."]
+scale = Vector2(5.51, 5.51)
+transform = Transform2D(5.51, 0, 0, 5.51, 0, 0)
+script = ExtResource("7_6w7ww")
+
+[node name="DisasterPanel" type="Panel" parent="DisasterLayer"]
+offset_right = 208.0
+offset_bottom = 117.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lw458")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://lbp3n5nsxgqq"]
+[gd_scene load_steps=4 format=3 uid="uid://d2cv6hnmgu3mf"]
 
 [ext_resource type="Script" path="res://Scripts/temp_bar.gd" id="1_3m7tx"]
 [ext_resource type="Texture2D" uid="uid://diin3qps0wumk" path="res://Assets/temp_bar.png" id="1_ito7b"]

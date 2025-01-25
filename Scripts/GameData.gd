@@ -1,6 +1,7 @@
 extends Node
 
 var energy = 0
+var temp = 0
 var hot_bubbles = 0
 var cold_bubbles = 0
 var electric_bubble = 0
@@ -24,3 +25,13 @@ func cold_bubble():
 
 func electric_bubbles():
 	electric_bubble += 1
+
+func get_temp():
+	temp = hot_bubbles - cold_bubbles
+	if temp < 55:
+		temp = 55
+	elif temp > -55:
+		temp = -55
+
+func change_temp(n):
+	temp += n

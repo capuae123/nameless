@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 			'''
 			seek_player()
 			velocity = velocity.move_toward(Vector2.ZERO, Friction)
+			print(velocity)
 			if wander_controller.get_time_left() == 0:
 				state = pick_random_state([IDLE, WANDER])
 				print("New State = ", state)

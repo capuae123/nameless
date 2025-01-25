@@ -1,11 +1,14 @@
 extends Node
 
-@export var energy = 100
 
-func add_energy() -> void:
-	energy += 1
+@onready var label = $Label
+@onready var data = $"/root/GameData"
 
-# Consumes energy by N amount
-func use_energy(n: int) -> void:
-	if n<=energy:
-		energy -= n
+
+func _ready() -> void:
+	label.text = str(data.energy)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	label.text = str(data.energy)

@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4pi1yr58ghd7"]
+[gd_scene load_steps=3 format=3 uid="uid://c4pi1yr58ghd7"]
 
 [ext_resource type="Script" path="res://Scripts/energy.gd" id="1_6v4r4"]
+[ext_resource type="Texture2D" uid="uid://c3gnnrlax3kuc" path="res://Assets/energy.png" id="2_0m3md"]
 
 [node name="Energy" type="Node"]
 script = ExtResource("1_6v4r4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 48.0
+offset_right = 88.0
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 34)
+scale = Vector2(3, 3)
+texture = ExtResource("2_0m3md")

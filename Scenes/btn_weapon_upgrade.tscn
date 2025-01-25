@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bahxxvipa461d"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade_gun.gd" id="1_4xnep"]
+[ext_resource type="Texture2D" uid="uid://br8y55ky75vaw" path="res://Assets/transparent_inventory_box.png" id="1_ik8wr"]
+[ext_resource type="Texture2D" uid="uid://bx2o1iyj5pe5b" path="res://Assets/weapon.png" id="2_blrls"]
+
+[node name="Btn_WeaponUpgrade" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_4xnep")
+
+[node name="Invenyory_Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4, 4)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ik8wr")
+
+[node name="Weapon_Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4, 4)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_blrls")

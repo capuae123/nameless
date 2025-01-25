@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 # Reference to the gun's tip (Marker2D)
 @onready var gun_tip = $gun/Tip
+@onready var data = $"/root/GameData"
 
 func get_input() -> Vector2:
 	# Gather input and normalize for smooth diagonal movement
@@ -34,8 +35,10 @@ func _physics_process(delta: float) -> void:
 	# Handle bubble spawning
 	if Input.is_action_just_pressed("spawn_hot_bubble"):
 		spawn_bubble(hot_bubble_scene)
+		data.hot_bubble()
 	elif Input.is_action_just_pressed("spawn_cold_bubble"):
 		spawn_bubble(cold_bubble_scene)
+		data.cold_bubble()
 
 func spawn_bubble(bubble_scene: PackedScene):
 	if bubble_scene:

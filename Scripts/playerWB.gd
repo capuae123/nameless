@@ -6,6 +6,9 @@ extends CharacterBody2D
 # Preload the bubble scenes
 @export var hot_bubble_scene: PackedScene
 @export var cold_bubble_scene: PackedScene
+@export var lightning_scene: PackedScene
+var combined_keys_timer: float = 0.0
+@export var required_hold_time: float = 2.0
 
 # Reference to the gun's tip (Marker2D)
 @onready var gun_tip = $gun/Tip
@@ -32,6 +35,19 @@ func _physics_process(delta: float) -> void:
 	# Move the character
 	move_and_slide()
 
+	# Check if both keys are pressed
+	if Input.is_action_pressed("spawn_hot_bubble") and Input.is_action_pressed("spawn_cold_bubble"):
+		# Increment the timer if both keys are pressed
+		combined_keys_timer += delta
+		# If held long enough, spawn electric bubble
+		if combined_keys_timer >= required_hold_time:
+			spawn_bubble(lightning_scene)
+			data.electric_bubbles()  # Custom logic for electric bubble (if needed)
+			combined_keys_timer = 0.0  # Reset the timer after spawning
+	else:
+		# Reset the timer if either key is released
+		combined_keys_timer = 0.0
+	
 	# Handle bubble spawning
 	if Input.is_action_just_pressed("spawn_hot_bubble"):
 		spawn_bubble(hot_bubble_scene)

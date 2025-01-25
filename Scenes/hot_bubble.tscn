@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0eqk4me5s7fk"]
+[gd_scene load_steps=3 format=3 uid="uid://yqsxtks5026a"]
 
-[ext_resource type="Script" path="res://Scenes/hot_bubble.gd" id="1_326yp"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_k7k7h"]
+[ext_resource type="Script" path="res://Scripts/hot_bubble.gd" id="1_326yp"]
+[ext_resource type="Texture2D" uid="uid://b17ytcs8nnw4q" path="res://Red Bubble.png" id="1_jfvxo"]
 
 [node name="HotBubble" type="Node2D"]
 scale = Vector2(6.695, 6.695)
 script = ExtResource("1_326yp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.0901961, 0.121569, 1)
-texture = SubResource("CanvasTexture_k7k7h")
+texture_filter = 1
+position = Vector2(0.597461, 0)
+scale = Vector2(0.0840935, 0.0864274)
+texture = ExtResource("1_jfvxo")

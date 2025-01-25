@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dw2stycm5ra3"]
+
+[ext_resource type="Texture2D" uid="uid://chxmfb5bmdhbi" path="res://Assets/1 Pink_Monster/Pink_Monster_Idle_4.png" id="1_6l3ym"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_fdsfx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g33x0"]
+atlas = ExtResource("1_6l3ym")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys1dw"]
+atlas = ExtResource("1_6l3ym")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssgfw"]
+atlas = ExtResource("1_6l3ym")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4vxx"]
+atlas = ExtResource("1_6l3ym")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdnwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g33x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys1dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssgfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4vxx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_61qk1"]
+radius = 7.07107
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_fdsfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_tdnwg")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_61qk1")

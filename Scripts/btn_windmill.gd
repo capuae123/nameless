@@ -19,7 +19,8 @@ func _on_pressed() -> void:
 
 
 func spawn_windmill():
-	if count <= n_spawns:
+	if count <= n_spawns and data.energy >= cost:
+		data.use_energy(cost)
 		var child = child_scene.instantiate()
 		add_child(child)
 		child.position = spawn_points[n_spawns]

@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhistymeniayq"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_oc1go"]
+[ext_resource type="PackedScene" uid="uid://c0eqk4me5s7fk" path="res://Scenes/hot_bubble.tscn" id="2_3qo4a"]
+[ext_resource type="Texture2D" uid="uid://chxmfb5bmdhbi" path="res://Assets/1 Pink_Monster/Pink_Monster_Idle_4.png" id="2_rvgrx"]
+[ext_resource type="PackedScene" uid="uid://cwceianb7k7la" path="res://Scenes/cold_bubble.tscn" id="3_13w8v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lngf3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g33x0"]
+atlas = ExtResource("2_rvgrx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys1dw"]
+atlas = ExtResource("2_rvgrx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssgfw"]
+atlas = ExtResource("2_rvgrx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4vxx"]
+atlas = ExtResource("2_rvgrx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdnwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g33x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys1dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssgfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4vxx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_61qk1"]
+radius = 7.07107
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(5, 3)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_oc1go")
+hot_bubble_scene = ExtResource("2_3qo4a")
+cold_bubble_scene = ExtResource("3_13w8v")
+
+[node name="gun" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-5, -9)
+scale = Vector2(10, 2)
+texture = SubResource("CanvasTexture_lngf3")
+
+[node name="Tip" type="Marker2D" parent="gun"]
+position = Vector2(0.5, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13, -15)
+sprite_frames = SubResource("SpriteFrames_tdnwg")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-13, -9)
+shape = SubResource("CircleShape2D_61qk1")

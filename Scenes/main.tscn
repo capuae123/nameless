@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://esjot3ba2i8i"]
 
 [node name="Main" type="Node2D"]
+<<<<<<< Updated upstream
+=======
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_nbkm5")]
+position = Vector2(208.088, 111)
+scale = Vector2(1, 0.994365)
+use_kinematic_bodies = false
+
+[node name="Player" parent="." instance=ExtResource("2_0wc54")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(192, 114.549)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+>>>>>>> Stashed changes

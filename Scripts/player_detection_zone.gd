@@ -8,11 +8,11 @@ Sends signals accordingly.
 var player = null
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: CharacterBody2D) -> void:
 	player = body
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(body: CharacterBody2D) -> void:
 	player = null
 
 

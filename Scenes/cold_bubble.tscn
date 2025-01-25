@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwceianb7k7la"]
 
-[ext_resource type="Script" path="res://cold_bubble.gd" id="1_awhct"]
+[ext_resource type="Script" path="res://Scripts/cold_bubble.gd" id="1_awhct"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0671j"]
 

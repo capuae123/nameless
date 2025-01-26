@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dew61m0sb2rdp" path="res://Scenes/wolf.tscn" id="9_igyy1"]
 
 
+
 [node name="test_main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("6_n83yk")]

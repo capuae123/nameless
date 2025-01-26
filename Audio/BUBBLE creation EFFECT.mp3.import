@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sg2nmmdvijgh"
+path="res://.godot/imported/BUBBLE creation EFFECT.mp3-de42f35c74efc0e644a27020125d2daa.mp3str"
+
+[deps]
+
+source_file="res://Audio/BUBBLE creation EFFECT.mp3"
+dest_files=["res://.godot/imported/BUBBLE creation EFFECT.mp3-de42f35c74efc0e644a27020125d2daa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

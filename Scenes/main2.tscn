@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv5prs3jd6y2w"]
 
 [ext_resource type="PackedScene" uid="uid://c8e8f6t7hhbsb" path="res://Scenes/demoingtilesdupe.tscn" id="1_7u20x"]
-[ext_resource type="PackedScene" uid="uid://dhistymeniayq" path="res://Scenes/player2.tscn" id="2_us25h"]
+[ext_resource type="PackedScene" uid="uid://btihwpqdp87ys" path="res://Scenes/player2.tscn" id="2_us25h"]
 
 [node name="Main" type="Node2D"]
 

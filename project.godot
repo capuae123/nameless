@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Nameless"
-run/main_scene="res://Scenes/intro_scene.tscn"
+
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +20,12 @@ config/icon="res://icon.svg"
 
 GameData="*res://Scripts/GameData.gd"
 TransistionScreen="*res://Scenes/TransitionScene.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/resizable=false
 
 [input]
 

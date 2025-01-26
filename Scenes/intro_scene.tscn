@@ -1,10 +1,13 @@
+
 [gd_scene load_steps=24 format=4 uid="uid://bpbcp4ckgnid0"]
+
 
 [ext_resource type="TileSet" uid="uid://bh3hbpf3lukap" path="res://TileSet.tres" id="1_y2rrm"]
 [ext_resource type="PackedScene" uid="uid://dw2stycm5ra3" path="res://Scenes/player.tscn" id="2_x8vx1"]
 [ext_resource type="Texture2D" uid="uid://baxikpn13c4ph" path="res://Assets/health_empty.png" id="3_7wpni"]
 [ext_resource type="PackedScene" uid="uid://c4pi1yr58ghd7" path="res://Scenes/Energy.tscn" id="3_rfw30"]
 [ext_resource type="PackedScene" uid="uid://d2cv6hnmgu3mf" path="res://Scenes/temp_bar.tscn" id="4_1h358"]
+
 [ext_resource type="Texture2D" uid="uid://ct20e7p6qcces" path="res://Assets/health_one.png" id="4_4ll2f"]
 [ext_resource type="Texture2D" uid="uid://dsqru47qfeh0f" path="res://Assets/health_two.png" id="5_885sm"]
 [ext_resource type="Script" path="res://Scenes/HealthBar.gd" id="5_qf3y4"]
@@ -181,6 +184,7 @@ vertical_alignment = 1
 [node name="boar" parent="." instance=ExtResource("5_ykaoq")]
 position = Vector2(-742, 270)
 
+
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_right = 0.5
@@ -205,3 +209,4 @@ shape = SubResource("RectangleShape2D_7juxe")
 position = Vector2(29, 121)
 stream = ExtResource("16_x2l3p")
 area_mask = 0
+

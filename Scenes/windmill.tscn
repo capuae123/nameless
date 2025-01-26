@@ -33,6 +33,7 @@ animations = [{
 }]
 
 [node name="Windmill" type="Node2D"]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_bh0re")
 
 [node name="Timer" type="Timer" parent="."]

@@ -90,8 +90,7 @@ func animation_for_direction(direction: Vector2) -> String:
 
 func take_dmg(dmg):
 	health -= dmg
+	if health <= 0:
+		sprite.play("death_SE")
+		get_tree().change_scene_to_file("res://Scenes/desertlayout.tscn")
 	print("Enemy health.........", health )
-
-
-func _on_tree_exiting() -> void:
-	sprite.play("death_NE")

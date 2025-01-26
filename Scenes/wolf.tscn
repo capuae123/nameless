@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cq5kfapa3dl1i" path="res://Assets/critters/critters/wolf/wolf-run.png" id="4_mcbcn"]
 [ext_resource type="PackedScene" uid="uid://do4l1opaujml4" path="res://Scenes/player_detection_zone.tscn" id="12_kxb6y"]
 [ext_resource type="PackedScene" uid="uid://bdhi6p21p0jcb" path="res://Scenes/kill_zone.tscn" id="13_fx1lj"]
-[ext_resource type="PackedScene" path="res://Scenes/wander_control.tscn" id="14_j2qoa"]
+[ext_resource type="PackedScene" uid="uid://fnnc8y4y13ls" path="res://Scenes/wander_control.tscn" id="14_j2qoa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rts1i"]
 atlas = ExtResource("2_u8gsa")
@@ -765,7 +765,6 @@ position = Vector2(3, 6)
 shape = SubResource("CircleShape2D_km80u")
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("12_kxb6y")]
-visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource("CircleShape2D_aqp1m")

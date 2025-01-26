@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" path="res://Scenes/windmill.tscn" id="2_kasl7"]
 [ext_resource type="PackedScene" path="res://Scenes/btn_windmill.tscn" id="3_0asya"]
 [ext_resource type="PackedScene" path="res://Scenes/btn_weapon_upgrade.tscn" id="4_qm01f"]
-[ext_resource type="PackedScene" path="res://Scenes/temp_bar.tscn" id="5_4wlmg"]
-[ext_resource type="PackedScene" path="res://Scenes/player2.tscn" id="6_n83yk"]
+[ext_resource type="PackedScene" uid="uid://d2cv6hnmgu3mf" path="res://Scenes/temp_bar.tscn" id="5_4wlmg"]
+[ext_resource type="PackedScene" uid="uid://btihwpqdp87ys" path="res://Scenes/player2.tscn" id="6_n83yk"]
 [ext_resource type="PackedScene" path="res://Scenes/boar.tscn" id="7_pfa53"]
 
 [node name="Node2D" type="Node2D"]

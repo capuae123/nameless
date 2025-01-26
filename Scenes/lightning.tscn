@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfj7eylrwrasl"]
+[gd_scene load_steps=8 format=3 uid="uid://bk4x4aqfmfqyk"]
 
 [ext_resource type="Texture2D" uid="uid://tlpr6ft3m4hi" path="res://Assets/Yellow bubble.png" id="1_gewvq"]
 [ext_resource type="Script" path="res://Scenes/lightning.gd" id="1_x05q1"]
-[ext_resource type="PackedScene" uid="uid://bc52ig3vmrt3u" path="res://Scenes/burst_scene.tscn" id="2_sqmh3"]
+[ext_resource type="PackedScene" path="res://Scenes/burst_scene.tscn" id="2_sqmh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_reeno"]
 atlas = ExtResource("1_gewvq")

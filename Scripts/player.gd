@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var obj = "Player"
+
 const SPEED = 120.0  # Movement speed of the player
 @onready var sprite_2d: AnimatedSprite2D = $AnimatedSprite2D  # Reference to the AnimatedSprite2D node
 @onready var walking_sound: AudioStreamPlayer2D = $WalkingSound  # Reference to the walking sound node
@@ -79,11 +81,12 @@ func _physics_process(delta: float) -> void:
 		spawn_bubble(cold_bubble_scene)
 		data.cold_bubble()
 
+		# Handle boar damage
 	if is_in_contact_with_boar:
 		boar_damage_cooldown -= delta
 		if boar_damage_cooldown <= 0:
-			take_dmg(1)
-			boar_damage_cooldown = boar_damage_timer
+			take_dmg(1)  # Reduce health by 1
+			boar_damage_cooldown = boar_damage_timer  # Reset the cooldown
 
 func spawn_bubble(bubble_scene: PackedScene):
 	if bubble_scene:

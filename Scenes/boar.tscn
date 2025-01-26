@@ -579,6 +579,7 @@ shape = SubResource("CircleShape2D_km80u")
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("13_6uwxe")]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+visibility_layer = 3
 shape = SubResource("CircleShape2D_aqp1m")
 
 [node name="KillZone" parent="." instance=ExtResource("16_6w5lh")]
@@ -589,6 +590,8 @@ position = Vector2(-5, 2)
 shape = SubResource("CircleShape2D_ffltp")
 
 [node name="wander_control" parent="." instance=ExtResource("17_08ilk")]
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 
 [editable path="PlayerDetectionZone"]
 [editable path="KillZone"]

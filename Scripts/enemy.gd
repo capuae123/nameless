@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
+var obj = "Enemy"
+
 @export var Acceleration = 1000
 @export var Max_Speed = 300
 @export var Friction = 30
 @export var MAX_HEALTH = 10
+@export var dmg = 1
+
+# Random animation selector
+@onready var idle = ["idle_NE","idle_NW","idle_SE","idle_SW"][randi() % ["idle_NE","idle_NW","idle_SE","idle_SW"].size()]
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player_detection_zone: Area2D = $PlayerDetectionZone
@@ -48,8 +54,8 @@ func _physics_process(delta: float) -> void:
 				velocity = velocity.move_toward(Max_Speed * direction, Acceleration * delta)
 				sprite.play(animation_for_direction(direction))
 			else:
-				state = IDLE
-
+				state = IDLE 
+        
 		ATTACK:
 			pass
 
@@ -84,4 +90,9 @@ func animation_for_direction(direction: Vector2) -> String:
 
 func take_dmg(dmg):
 	health -= dmg
-	print("Enemy health.........", health)
+	print("Enemy health.........", health )
+
+
+func _on_tree_exiting() -> void:
+	sprite.play("death_NE")
+

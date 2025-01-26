@@ -10,6 +10,7 @@ position = Vector2(210, 108)
 
 [node name="Player2" parent="." instance=ExtResource("2_us25h")]
 position = Vector2(201, 114)
+required_hold_time = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="Player2"]
 position = Vector2(3, -7.00001)

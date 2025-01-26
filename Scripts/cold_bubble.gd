@@ -3,6 +3,7 @@ extends Node2D
 @export var speed: float = 100.0
 @export var burst_scene: PackedScene  # Drag and drop the burst.tscn here in the Inspector
 @export var burst_time: float = 0.5  # Time in seconds for the bubble to burst
+@export var pop_sound: AudioStream  # Drag and drop the pop sound effect here in the Inspector
 
 @export var randomness_factor: float = 150.0  # Controls the sway speed
 var random_direction: float = 1.0  # Random direction for X-axis movement
@@ -41,6 +42,18 @@ func spawn_burst():
 		burst_instance.position = position
 		# Add it to the current scene
 		get_tree().current_scene.add_child(burst_instance)
+
+	# Play the popping sound effect
+	if pop_sound:
+		var audio_player = AudioStreamPlayer2D.new()
+		audio_player.stream = pop_sound
+		audio_player.position = position
+		add_child(audio_player)  # Add the audio player as a child of the bubble
+		audio_player.play()
+
+		# Queue free the audio player after the sound finishes playing
+		get_tree().create_timer(audio_player.stream.get_length()).timeout.connect(func():
+			audio_player.queue_free())
 
 	# Free the bubble node
 	queue_free()

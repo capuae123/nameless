@@ -93,7 +93,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jlm64")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2mlnx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mdgpw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g45mb")
-text = "Options"
+text = "Credits"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2

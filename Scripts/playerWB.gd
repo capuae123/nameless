@@ -22,6 +22,8 @@ var boar_damage_cooldown: float = 0.0  # Timer for damage cooldown
 @export var lightning_scene: PackedScene
 var combined_keys_timer: float = 0.0
 @export var required_hold_time: float = 2.0
+@export var bubble_cooldown: float = 0.3  # Cooldown time between bubbles in seconds
+var can_spawn_bubble: bool = true  # Prevent spamming
 
 @onready var gun_tip = $gun/Tip
 @onready var data = $"/root/GameData"
@@ -55,12 +57,14 @@ func _physics_process(delta: float) -> void:
 		combined_keys_timer = 0.0
 
 	# Handle bubble spawning
-	if Input.is_action_just_pressed("spawn_hot_bubble"):
+	if Input.is_action_just_pressed("spawn_hot_bubble") and can_spawn_bubble:
 		spawn_bubble(hot_bubble_scene)
 		data.hot_bubble()
-	elif Input.is_action_just_pressed("spawn_cold_bubble"):
+		start_bubble_cooldown()  # Start cooldown
+	elif Input.is_action_just_pressed("spawn_cold_bubble") and can_spawn_bubble:
 		spawn_bubble(cold_bubble_scene)
 		data.cold_bubble()
+		start_bubble_cooldown()  # Start cooldown
 
 	# Handle boar damage
 	if is_in_contact_with_boar:
@@ -75,7 +79,16 @@ func spawn_bubble(bubble_scene: PackedScene):
 		bubble_instance.position = gun_tip.global_position
 		get_tree().current_scene.add_child(bubble_instance)
 
+
+func start_bubble_cooldown():
+	# Disable bubble spawning and start the timer
+	can_spawn_bubble = false
+	timer.wait_time = bubble_cooldown
+	timer.start()
+
 func _on_timer_timeout() -> void:
+	# Re-enable bubble spawning after cooldown
+	can_spawn_bubble = true
 	data.add_energy()
 
 # Update health and health bar

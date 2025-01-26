@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
-# Movement variables
+var obj = "Player"
+
+# Movement & HP variables
 @export var speed: float = 200.0
+@export var MAX_HEALTH = 10
+@export var dmg = 0
+var health = MAX_HEALTH
 
 # Preload the bubble scenes
 @export var hot_bubble_scene: PackedScene
@@ -68,6 +73,10 @@ func spawn_bubble(bubble_scene: PackedScene):
 		# Add it to the current scene
 		get_tree().current_scene.add_child(bubble_instance)
 
-
 func _on_timer_timeout() -> void:
 	data.add_energy()
+
+func take_dmg(dmg):
+	health -= dmg
+	print("Player health.........", health )
+	

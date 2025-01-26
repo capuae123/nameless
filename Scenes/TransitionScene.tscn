@@ -1,6 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwohmh5kvowct"]
+[gd_scene load_steps=6 format=3 uid="uid://dpmcdxhefyid6"]
 
-[ext_resource type="Script" path="res://Scenes/transistion_screen.gd" id="1_f37oa"]
+[sub_resource type="GDScript" id="GDScript_cq8xm"]
+script/source = "extends CanvasLayer
+
+signal on_transition_finished
+
+@onready var color_rect = $ColorRect
+@onready var animation_player = $AnimationPlayer
+
+var next_scene_path: String = \"\"
+
+func _ready():
+	color_rect.visible = false
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == \"fade_to_black\":
+		# Switch to the next scene after fading to black
+		get_tree().change_scene(next_scene_path)
+	elif anim_name == \"fade_to_normal\":
+		# Destroy the transition scene after fading back to normal
+		queue_free()
+
+func transition():
+	color_rect.visible = true
+	animation_player.play(\"fade_to_black\")
+"
+
+[sub_resource type="Animation" id="Animation_mpmec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_6fdtw"]
 resource_name = "fade_to_black"
@@ -16,21 +55,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_mpmec"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8t5m1"]
@@ -57,7 +81,7 @@ _data = {
 }
 
 [node name="TransistionScreen" type="CanvasLayer"]
-script = ExtResource("1_f37oa")
+script = SubResource("GDScript_cq8xm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -72,3 +96,5 @@ color = Color(0.337012, 8.77664e-05, 0.343457, 1)
 libraries = {
 "": SubResource("AnimationLibrary_4vu0k")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

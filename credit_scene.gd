@@ -1,5 +1,6 @@
 extends Control
 
+var next_scene = preload("res://main_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,13 +12,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main2.tscn")
-
-
-func _on_options_pressed() -> void:
-	get_tree().change_scene_to_file("res://CreditScene.tscn")
-
-
-func _on_exit_pressed() -> void:
-	get_tree().quit()
+func _on_video_stream_player_finished():
+	get_tree().change_scene_to_packed(next_scene)

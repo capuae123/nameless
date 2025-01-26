@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=4 uid="uid://cikpuv3yl5nl"]
 
-[ext_resource type="TileSet" uid="uid://cp2qwu5n14l0" path="res://TileSet.tres" id="1_qw6gr"]
+[ext_resource type="TileSet" uid="uid://bh3hbpf3lukap" path="res://TileSet.tres" id="1_qw6gr"]
 
 [node name="Forest" type="Node2D"]
 

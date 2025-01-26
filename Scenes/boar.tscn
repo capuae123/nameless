@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cv2ncc2g5alow" path="res://Assets/critters/critters/boar/boar_SE_run_strip.png" id="9_1iwbi"]
 [ext_resource type="Texture2D" uid="uid://2chs0ahnicu4" path="res://Assets/critters/critters/boar/boar_SW_run_strip.png" id="10_8qjit"]
 [ext_resource type="PackedScene" uid="uid://do4l1opaujml4" path="res://Scenes/player_detection_zone.tscn" id="13_6uwxe"]
-[ext_resource type="PackedScene" uid="uid://chl02181feslw" path="res://Scenes/stats.tscn" id="13_dbwbl"]
 [ext_resource type="PackedScene" uid="uid://bdhi6p21p0jcb" path="res://Scenes/kill_zone.tscn" id="16_6w5lh"]
 [ext_resource type="PackedScene" uid="uid://fnnc8y4y13ls" path="res://Scenes/wander_control.tscn" id="17_08ilk"]
 
@@ -557,8 +556,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_km80u"]
+radius = 7.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqp1m"]
-radius = 59.0085
+radius = 121.103
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ffltp"]
 radius = 10.0499
@@ -570,19 +572,19 @@ script = ExtResource("1_tkck3")
 sprite_frames = SubResource("SpriteFrames_x12pm")
 animation = &"death_SW"
 
-[node name="stats" parent="." instance=ExtResource("13_dbwbl")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 2)
+shape = SubResource("CircleShape2D_km80u")
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("13_6uwxe")]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
-visibility_layer = 2
 shape = SubResource("CircleShape2D_aqp1m")
 
 [node name="KillZone" parent="." instance=ExtResource("16_6w5lh")]
-visibility_layer = 2
 
 [node name="CollisionShape2D" parent="KillZone" index="0"]
-light_mask = 0
+visibility_layer = 3
 position = Vector2(-5, 2)
 shape = SubResource("CircleShape2D_ffltp")
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/energy.gd" id="1_6v4r4"]
 [ext_resource type="Texture2D" uid="uid://c3gnnrlax3kuc" path="res://Assets/energy.png" id="2_0m3md"]
 
-[node name="Energy" type="Node"]
+[node name="Energy" type="Node2D"]
 script = ExtResource("1_6v4r4")
 
 [node name="Label" type="Label" parent="."]

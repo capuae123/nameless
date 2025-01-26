@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
-# Movement variables
+var obj = "Player"
+
+# Movement & HP variables
 @export var speed: float = 200.0
+@export var MAX_HEALTH = 10
+@export var dmg = 0
+var health = MAX_HEALTH
 
 # Preload the bubble scenes
 @export var hot_bubble_scene: PackedScene
@@ -13,6 +18,7 @@ var combined_keys_timer: float = 0.0
 # Reference to the gun's tip (Marker2D)
 @onready var gun_tip = $gun/Tip
 @onready var data = $"/root/GameData"
+@onready var timer =$Timer
 
 func get_input() -> Vector2:
 	# Gather input and normalize for smooth diagonal movement
@@ -25,6 +31,8 @@ func get_input() -> Vector2:
 func _physics_process(delta: float) -> void:
 	# Get input direction
 	var input_direction = get_input()
+	
+	
 
 	# Adjust movement for isometric perspective
 	velocity = Vector2(
@@ -64,3 +72,11 @@ func spawn_bubble(bubble_scene: PackedScene):
 		bubble_instance.position = gun_tip.global_position
 		# Add it to the current scene
 		get_tree().current_scene.add_child(bubble_instance)
+
+func _on_timer_timeout() -> void:
+	data.add_energy()
+
+func take_dmg(dmg):
+	health -= dmg
+	print("Player health.........", health )
+	

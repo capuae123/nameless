@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bk4x4aqfmfqyk"]
+[gd_scene load_steps=10 format=3 uid="uid://dfj7eylrwrasl"]
 
 [ext_resource type="Texture2D" uid="uid://tlpr6ft3m4hi" path="res://Assets/Yellow bubble.png" id="1_gewvq"]
-[ext_resource type="Script" path="res://Scenes/lightning.gd" id="1_x05q1"]
-[ext_resource type="PackedScene" path="res://Scenes/burst_scene.tscn" id="2_sqmh3"]
+[ext_resource type="Script" path="res://Scripts/lightning.gd" id="1_x05q1"]
+[ext_resource type="PackedScene" uid="uid://bc52ig3vmrt3u" path="res://Scenes/burst_scene.tscn" id="2_sqmh3"]
+[ext_resource type="PackedScene" uid="uid://bdhi6p21p0jcb" path="res://Scenes/kill_zone.tscn" id="4_id44d"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_reeno"]
 atlas = ExtResource("1_gewvq")
@@ -33,6 +35,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7i0a"]
+radius = 8.0
+
 [node name="Lightning" type="Node2D"]
 script = ExtResource("1_x05q1")
 burst_scene = ExtResource("2_sqmh3")
@@ -41,3 +46,11 @@ burst_scene = ExtResource("2_sqmh3")
 sprite_frames = SubResource("SpriteFrames_mikv6")
 frame = 2
 frame_progress = 0.0722132
+
+[node name="KillZone" parent="." instance=ExtResource("4_id44d")]
+
+[node name="CollisionShape2D" parent="KillZone" index="0"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_a7i0a")
+
+[editable path="KillZone"]

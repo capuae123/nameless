@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 				sprite.play(animation_for_direction(direction))
 			else:
 				state = IDLE 
-        
+		
 		ATTACK:
 			pass
 
@@ -95,4 +95,3 @@ func take_dmg(dmg):
 
 func _on_tree_exiting() -> void:
 	sprite.play("death_NE")
-

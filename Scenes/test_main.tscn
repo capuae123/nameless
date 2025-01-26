@@ -33,6 +33,8 @@ scale = Vector2(2, 2)
 
 [node name="Player2" parent="." instance=ExtResource("6_n83yk")]
 position = Vector2(466, 233)
+scale = Vector2(2, 2)
 
 [node name="boar" parent="." instance=ExtResource("7_pfa53")]
-position = Vector2(346, 259)
+position = Vector2(919, 263)
+scale = Vector2(3, 3)

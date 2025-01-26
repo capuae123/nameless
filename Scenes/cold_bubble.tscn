@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwceianb7k7la"]
+[gd_scene load_steps=4 format=3 uid="uid://c4c7sciia0ntj"]
 
 [ext_resource type="Script" path="res://Scripts/cold_bubble.gd" id="1_awhct"]
-[ext_resource type="PackedScene" uid="uid://bc52ig3vmrt3u" path="res://Scenes/burst_scene.tscn" id="2_adurk"]
+[ext_resource type="PackedScene" path="res://Scenes/burst_scene.tscn" id="2_adurk"]
 [ext_resource type="Texture2D" uid="uid://3355rkr7i7oo" path="res://Blue Bubble.png" id="2_usnbs"]
 
 [node name="ColdBubble" type="Node2D"]

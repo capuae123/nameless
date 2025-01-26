@@ -591,5 +591,7 @@ shape = SubResource("CircleShape2D_ffltp")
 
 [node name="wander_control" parent="." instance=ExtResource("17_08ilk")]
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+
 [editable path="PlayerDetectionZone"]
 [editable path="KillZone"]

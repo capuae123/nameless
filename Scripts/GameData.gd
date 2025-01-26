@@ -37,5 +37,5 @@ func get_temp():
 			temp = -55
 		return temp
 
-func change_temp(n):
+func  change_temp(n):
 	temp += n

@@ -1,79 +1,73 @@
 extends Node2D
 
-@export var change_speed: float = 0.05  # Speed of tile transitions (seconds per tile)
-@onready var desert_tilemap: TileMap = $Desert  # Desert terrain TileMap
-@onready var forest_tilemap: TileMap = $Forest  # Forest terrain TileMap
-@onready var arctic_tilemap: TileMap = $Arctic  # Arctic terrain TileMap
+@onready var desert_tilemap: TileMap = $Desert  # Desert terrain
+@onready var forest_tilemap: TileMap = $Forest  # Forest terrain
+@onready var arctic_tilemap: TileMap = $Arctic  # Arctic terrain
 
-var active_tilemap: TileMap = desert_tilemap  # The current active terrain (default: desert)
-var target_tilemap: TileMap = null  # The target terrain to transition to
-var is_changing: bool = false  # Whether a terrain transition is currently happening
+@export var change_speed: float = 0.05  # Time interval between tile changes
+var active_tilemap: TileMap
+var target_tilemap: TileMap
+var is_changing: bool = false
 
-func _ready():
-	# Ensure only the active tilemap (desert) is visible at the start
-	desert_tilemap.visible = true
+func _ready() -> void:
+	# Set the initial terrain to Desert
+	active_tilemap = desert_tilemap
 	forest_tilemap.visible = false
 	arctic_tilemap.visible = false
 
-	# For testing: Trigger a terrain transition (remove this in production)
-	# transition_to_terrain("forest")
+	# Connect to the temperature_changed signal from the bubble script
+	var bubble_node = $Bubble  # Adjust this path to your bubble node
+	if bubble_node:
+		bubble_node.connect("temperature_changed", Callable(self, "_on_temperature_changed"))
+	
 
-# Call this function to trigger a terrain change
-func transition_to_terrain(terrain: String) -> void:
-	if is_changing:
-		return  # Prevent multiple transitions at once
+func _on_temperature_changed(new_temp: int) -> void:
+	# Determine the target terrain based on temperature
+	if new_temp > 0:
+		target_tilemap = desert_tilemap
+	elif new_temp < 0:
+		target_tilemap = arctic_tilemap
+	else:
+		target_tilemap = forest_tilemap
 
-	match terrain:
-		"desert":
-			target_tilemap = desert_tilemap
-		"forest":
-			target_tilemap = forest_tilemap
-		"arctic":
-			target_tilemap = arctic_tilemap
-		_:
-			return  # Invalid terrain name
+	# Start the terrain change
+	start_terrain_change()
 
-	# Start the tile-changing process
+func start_terrain_change() -> void:
+	if is_changing or active_tilemap == target_tilemap:
+		return  # Skip if already changing or if the target is the same as the active terrain
+
 	is_changing = true
-	_change_tiles()
+	_change_terrain()  # Start terrain change coroutine
 
-# Coroutine to gradually change the tiles
-func _change_tiles() -> void:
-	# Get all positions of tiles in the active and target tilemaps
-	var active_positions = get_all_tile_positions(active_tilemap)
-	while active_positions.size() > 0:
-		# Randomly select a tile position
-		var random_index = randi() % active_positions.size()
-		var pos = active_positions[random_index]
-		active_positions.remove_at(random_index)
+func _change_terrain() -> void:
+	# Get all tile positions in the active TileMap
+	var tile_positions = get_all_tile_positions(active_tilemap)
 
-		# Get the target tile ID at the same position
-		var target_tile_id = target_tilemap.get_cell(0, pos)
+	while tile_positions.size() > 0:
+		# Randomly select a tile to change
+		var random_index = randi() % tile_positions.size()
+		var pos = tile_positions[random_index]
+		tile_positions.remove_at(random_index)
 
-		# Update the active tilemap with the target tile ID
+		# Set the tile at the same position to match the target terrain
+		var target_tile_id = target_tilemap.get_cell_source_id(0, pos)
 		active_tilemap.set_cell(0, pos, target_tile_id)
 
-		# Wait before processing the next tile
+		# Wait for the specified interval
 		await get_tree().create_timer(change_speed).timeout
 
-	# Finalize the terrain change
-	is_changing = false
+	# Mark the terrain change as complete
 	active_tilemap = target_tilemap
-	_update_visibility()
+	is_changing = false
 
-# Make only the active tilemap visible
-func _update_visibility() -> void:
-	desert_tilemap.visible = (active_tilemap == desert_tilemap)
-	forest_tilemap.visible = (active_tilemap == forest_tilemap)
-	arctic_tilemap.visible = (active_tilemap == arctic_tilemap)
-
-# Get all tile positions in the given tilemap
 func get_all_tile_positions(tilemap: TileMap) -> Array:
 	var positions = []
-	var used_rect = tilemap.get_used_rect()  # Get the rectangle covering used tiles
+	var used_rect = tilemap.get_used_rect()
+
 	for x in range(used_rect.position.x, used_rect.end.x):
 		for y in range(used_rect.position.y, used_rect.end.y):
 			var pos = Vector2i(x, y)
-			if tilemap.get_cell(0, pos) != -1:  # Check if a tile exists
+			if tilemap.get_cell_source_id(0, pos) != -1:
 				positions.append(pos)
 	return positions

@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bc52ig3vmrt3u" path="res://Scenes/burst_scene.tscn" id="2_sqmh3"]
 [ext_resource type="PackedScene" uid="uid://bdhi6p21p0jcb" path="res://Scenes/kill_zone.tscn" id="4_id44d"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_reeno"]
 atlas = ExtResource("1_gewvq")
 region = Rect2(0, 0, 21, 16)

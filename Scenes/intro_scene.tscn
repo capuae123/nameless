@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bpbcp4ckgnid0"]
+[gd_scene load_steps=24 format=4 uid="uid://bpbcp4ckgnid0"]
 
 [ext_resource type="TileSet" uid="uid://bh3hbpf3lukap" path="res://TileSet.tres" id="1_y2rrm"]
 [ext_resource type="PackedScene" uid="uid://dw2stycm5ra3" path="res://Scenes/player.tscn" id="2_x8vx1"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://Scenes/cloud_and_rain.gd" id="12_f7ayy"]
 [ext_resource type="Texture2D" uid="uid://b5cksdv7q2tby" path="res://Assets/Cloud.png" id="13_alfbf"]
 [ext_resource type="Texture2D" uid="uid://d3uq7j2ytvngi" path="res://Scenes/WhatsApp Image 2025-01-26 at 16.51.16_af2b73bf.jpg" id="15_gdgvt"]
+[ext_resource type="Script" path="res://Scenes/skibb.gd" id="16_i2t3m"]
+[ext_resource type="AudioStream" uid="uid://e02xar6k6o0u" path="res://Scenes/skibbbi.mp3" id="16_x2l3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnp81"]
 atlas = ExtResource("13_alfbf")
@@ -51,6 +53,9 @@ animations = [{
 "name": &"default",
 "speed": 2.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7juxe"]
+size = Vector2(129, 95)
 
 [node name="Intro_Scene" type="Node2D"]
 
@@ -188,3 +193,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_gdgvt")
 expand_mode = 1
+
+[node name="Area2D" type="Area2D" parent="TextureRect"]
+script = ExtResource("16_i2t3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D"]
+position = Vector2(28, 106)
+shape = SubResource("RectangleShape2D_7juxe")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TextureRect/Area2D"]
+position = Vector2(29, 121)
+stream = ExtResource("16_x2l3p")
+area_mask = 0

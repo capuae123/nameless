@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwspk0cy7hjod"
+path="res://.godot/imported/MC walking.wav-1386616373767c5b6cf759b21c79072f.sample"
+
+[deps]
+
+source_file="res://Audio/MC walking.wav"
+dest_files=["res://.godot/imported/MC walking.wav-1386616373767c5b6cf759b21c79072f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=1
+edit/loop_end=-2
+compress/mode=0

@@ -1,16 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbao8kxbfdj6g"]
+[gd_scene load_steps=5 format=3 uid="uid://dbao8kxbfdj6g"]
 
-[ext_resource type="PackedScene" uid="uid://c4pi1yr58ghd7" path="res://Scenes/Energy.tscn" id="1_p4y0a"]
-[ext_resource type="PackedScene" uid="uid://cwvlspjjt2fgh" path="res://Scenes/windmill.tscn" id="2_kasl7"]
-[ext_resource type="PackedScene" uid="uid://bv0ux46a4ag1j" path="res://Scenes/btn_windmill.tscn" id="3_0asya"]
-[ext_resource type="PackedScene" uid="uid://bahxxvipa461d" path="res://Scenes/btn_weapon_upgrade.tscn" id="4_qm01f"]
-[ext_resource type="PackedScene" uid="uid://d2cv6hnmgu3mf" path="res://Scenes/temp_bar.tscn" id="5_4wlmg"]
-[ext_resource type="PackedScene" uid="uid://dhistymeniayq" path="res://Scenes/player2.tscn" id="6_n83yk"]
+[ext_resource type="PackedScene" uid="uid://btihwpqdp87ys" path="res://Scenes/player2.tscn" id="6_n83yk"]
 [ext_resource type="PackedScene" uid="uid://bqtbrh6b4slei" path="res://Scenes/boar.tscn" id="7_pfa53"]
 [ext_resource type="PackedScene" uid="uid://poixtnmp3j55" path="res://Scenes/deer.tscn" id="8_8krgq"]
 [ext_resource type="PackedScene" uid="uid://dew61m0sb2rdp" path="res://Scenes/wolf.tscn" id="9_igyy1"]
-
-
 
 [node name="test_main" type="Node2D"]
 
@@ -20,7 +13,6 @@ scale = Vector2(3, 3)
 
 [node name="boar" parent="." instance=ExtResource("7_pfa53")]
 position = Vector2(886, 210)
-
 scale = Vector2(3, 3)
 
 [node name="deer" parent="." instance=ExtResource("8_8krgq")]

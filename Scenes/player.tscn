@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://dw2stycm5ra3"]
+[gd_scene load_steps=19 format=3 uid="uid://dw2stycm5ra3"]
 
 [ext_resource type="Texture2D" uid="uid://bhc22qs181dak" path="res://Weapon.png" id="2_3hhhg"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_fdsfx"]
-[ext_resource type="PackedScene" path="res://Scenes/hot_bubble.tscn" id="2_rgkmf"]
+[ext_resource type="PackedScene" path="res://Scenes/hot_bubble.tscn" id="2_mubsx"]
 [ext_resource type="Texture2D" uid="uid://dmb5y6hwjv3h8" path="res://Assets/Updates walk,back.png" id="2_u8u21"]
-[ext_resource type="PackedScene" uid="uid://c4c7sciia0ntj" path="res://Scenes/cold_bubble.tscn" id="3_lco7w"]
+[ext_resource type="PackedScene" uid="uid://c4c7sciia0ntj" path="res://Scenes/cold_bubble.tscn" id="3_r63cq"]
 [ext_resource type="Texture2D" uid="uid://dpqu0qq6pby7u" path="res://Assets/Updates walk,front.PNG" id="3_y6x36"]
-[ext_resource type="PackedScene" uid="uid://bk4x4aqfmfqyk" path="res://Scenes/lightning.tscn" id="4_eakki"]
+[ext_resource type="PackedScene" uid="uid://dfj7eylrwrasl" path="res://Scenes/lightning.tscn" id="4_uf5dl"]
+[ext_resource type="AudioStream" uid="uid://cwspk0cy7hjod" path="res://Audio/MC walking.wav" id="5_qnk85"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1d4v"]
 atlas = ExtResource("2_u8u21")
@@ -91,12 +92,10 @@ animations = [{
 radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("2_fdsfx")
-hot_bubble_scene = ExtResource("2_rgkmf")
-cold_bubble_scene = ExtResource("3_lco7w")
-lightning_scene = ExtResource("4_eakki")
+hot_bubble_scene = ExtResource("2_mubsx")
+cold_bubble_scene = ExtResource("3_r63cq")
+lightning_scene = ExtResource("4_uf5dl")
 
 [node name="gun" type="Sprite2D" parent="."]
 z_index = 1
@@ -118,3 +117,6 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_61qk1")
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qnk85")

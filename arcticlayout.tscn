@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=4 uid="uid://b867w1w4pvp05"]
 
-[ext_resource type="TileSet" uid="uid://cp2qwu5n14l0" path="res://TileSet.tres" id="1_wx23w"]
+[ext_resource type="TileSet" uid="uid://bh3hbpf3lukap" path="res://TileSet.tres" id="1_wx23w"]
 
 [node name="Arctic" type="Node2D"]
 

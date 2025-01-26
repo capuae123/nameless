@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bpbcp4ckgnid0"]
+[gd_scene load_steps=21 format=4 uid="uid://bpbcp4ckgnid0"]
 
 [ext_resource type="TileSet" uid="uid://bh3hbpf3lukap" path="res://TileSet.tres" id="1_y2rrm"]
 [ext_resource type="PackedScene" uid="uid://dw2stycm5ra3" path="res://Scenes/player.tscn" id="2_x8vx1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://tkrpyeqq7ver" path="res://Assets/health_four.png" id="7_fvefa"]
 [ext_resource type="Script" path="res://Scenes/cloud_and_rain.gd" id="12_f7ayy"]
 [ext_resource type="Texture2D" uid="uid://b5cksdv7q2tby" path="res://Assets/Cloud.png" id="13_alfbf"]
+[ext_resource type="Texture2D" uid="uid://d3uq7j2ytvngi" path="res://Scenes/WhatsApp Image 2025-01-26 at 16.51.16_af2b73bf.jpg" id="15_gdgvt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnp81"]
 atlas = ExtResource("13_alfbf")
@@ -174,3 +175,16 @@ vertical_alignment = 1
 
 [node name="boar" parent="." instance=ExtResource("5_ykaoq")]
 position = Vector2(-742, 270)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 794.0
+offset_top = 572.0
+offset_right = 1009.0
+offset_bottom = 789.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_gdgvt")
+expand_mode = 1

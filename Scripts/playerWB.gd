@@ -13,6 +13,7 @@ var combined_keys_timer: float = 0.0
 # Reference to the gun's tip (Marker2D)
 @onready var gun_tip = $gun/Tip
 @onready var data = $"/root/GameData"
+@onready var timer =$Timer
 
 func get_input() -> Vector2:
 	# Gather input and normalize for smooth diagonal movement
@@ -25,6 +26,8 @@ func get_input() -> Vector2:
 func _physics_process(delta: float) -> void:
 	# Get input direction
 	var input_direction = get_input()
+	
+	
 
 	# Adjust movement for isometric perspective
 	velocity = Vector2(
@@ -64,3 +67,7 @@ func spawn_bubble(bubble_scene: PackedScene):
 		bubble_instance.position = gun_tip.global_position
 		# Add it to the current scene
 		get_tree().current_scene.add_child(bubble_instance)
+
+
+func _on_timer_timeout() -> void:
+	data.add_energy()

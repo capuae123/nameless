@@ -1,82 +1,70 @@
 extends CharacterBody2D
 
-#const EnemyDeathEffect=preload("res://Game2/Lvl/EnemyDeathEffect.tscn")
+@export var Acceleration = 1000
+@export var Max_Speed = 300
+@export var Friction = 30
+@export var MAX_HEALTH = 10
+@onready var idle = ["idle_NE","idle_NW","idle_SE","idle_SW"][randi() % ["idle_NE","idle_NW","idle_SE","idle_SW"].size()]
 
-@export var Acceleration=300
-@export var Max_Speed=150
-@export var Friction=200
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player_detection_zone: Area2D = $PlayerDetectionZone
+@onready var stats = $stats
 
-var knockback=Vector2.ZERO
-var state=IDLE
+enum {IDLE, CHASE, ATTACK}
 
-@onready var stats=$Stats
-@onready var playerDetectionZone=$PlayerDetectionZone
-@onready var sprite=$AnimatedSprite2D
-@onready var hurtbox=$HurtBix
-@onready var softcollision=$SoftCollision
-@onready var wanderController=$WanderController
-
-enum {IDLE,WANDER,CHASE}
+var state = IDLE
+var knockback = Vector2.ZERO
+var health = MAX_HEALTH
+var enemy_dmg = 1	# Damage done by this enemy
 
 
-func _physics_process(delta):
-	knockback=knockback.move_toward(Vector2.ZERO,200*delta)
+
+func _physics_process(delta: float) -> void:
+	# Motion smoothing
+	knockback = knockback.move_toward(Vector2.ZERO,Friction * delta)
 	set_velocity(knockback)
 	move_and_slide()
-	knockback=velocity
+	knockback = velocity
+	
 	match state:
 		IDLE:
-			velocity=velocity.move_toward(Vector2.ZERO,Friction)
+			'''
+			Enemy does not move (is idle). 
+			seek_player(): checks if player is in visible/identifyable range.
+			'''
 			seek_player()
-			if wanderController.get_time_left()==0:
-				state=pick_random_state([IDLE,WANDER])
-				wanderController.start_wander_timer(randf_range(1,3))
-	
-		WANDER:
-			seek_player()
-			if wanderController.get_time_left()==0:
-				state=pick_random_state([IDLE,WANDER])
-				wanderController.start_wander_timer(randf_range(1,3))
-			var direction=global_position.direction_to(wanderController.target_pos)
-			velocity=velocity.move_toward(Max_Speed*direction,Acceleration*delta)
-			if global_position.distance_to(wanderController.target_pos)<=4:
-				state=pick_random_state([IDLE,WANDER])
-				wanderController.start_wander_timer(randf_range(1,3))
-			sprite.flip_h=velocity.x<0
-	
+			velocity = velocity.move_toward(Vector2.ZERO, Friction)
+			sprite.play(idle)
+
 		CHASE:
-			var player=playerDetectionZone.player
-			if player!=null:
-				var direction=global_position.direction_to(player.global_position)
-				velocity=velocity.move_toward(Max_Speed*direction,Acceleration*delta)
+			'''
+			Enemy follows/chases player as long as player is in detectable range.
+			Killzone scene sends a signal when a body enters it.
+			'''
+			var player = player_detection_zone.player
+			if player != null:
+				var direction = global_position.direction_to(player.global_position)
+				velocity = velocity.move_toward(Max_Speed * direction, Acceleration * delta)
+				sprite.play("run_NW")
 			else:
-				state=IDLE
-			sprite.flip_h=velocity.x<0
-	if softcollision.is_colliding():
-		velocity+=softcollision.get_push_vector()*50
+				state = IDLE
+
+		ATTACK:
+			pass
+	
 	set_velocity(velocity)
 	move_and_slide()
-	velocity=velocity
+	velocity = velocity
 
 
 func seek_player():
-	if playerDetectionZone.can_see_player():
-		state=CHASE
+	if player_detection_zone.can_see_player():
+		print("Inside Player detection")
+		sprite.play("attac")
+		state = CHASE
 
 
-func pick_random_state(state_list):
-	state_list.shuffle()
-	return state_list.pop_front()
 
-
-func _on_HurtBix_area_entered(area: Area2D):
-	stats.health-=area.damage
-	knockback=area.knockback_direction*120
-	hurtbox.create_hit_effect()
-
-
-func _on_Stats_ded():
-	queue_free()
-	var enemyDeathEffect=EnemyDeathEffect.instantiate()
-	get_parent().add_child(enemyDeathEffect)
-	enemyDeathEffect.position=self.position
+func take_dmg(dmg):
+	health -= dmg
+	print("Enemy health.........", health )

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfj7eylrwrasl"]
+
+[ext_resource type="Texture2D" uid="uid://tlpr6ft3m4hi" path="res://Assets/Yellow bubble.png" id="1_gewvq"]
+[ext_resource type="Script" path="res://Scenes/lightning.gd" id="1_x05q1"]
+[ext_resource type="PackedScene" uid="uid://bc52ig3vmrt3u" path="res://Scenes/burst_scene.tscn" id="2_sqmh3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reeno"]
+atlas = ExtResource("1_gewvq")
+region = Rect2(0, 0, 21, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j57sd"]
+atlas = ExtResource("1_gewvq")
+region = Rect2(21, 0, 21, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xp5x"]
+atlas = ExtResource("1_gewvq")
+region = Rect2(42, 0, 21, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mikv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reeno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j57sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xp5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48dcf"]
+
+[node name="Lightning" type="Node2D"]
+script = ExtResource("1_x05q1")
+burst_scene = ExtResource("2_sqmh3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mikv6")
+frame = 2
+frame_progress = 0.0722132
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_48dcf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhistymeniayq"]
+[gd_scene load_steps=13 format=3 uid="uid://dhistymeniayq"]
 
 [ext_resource type="Script" path="res://Scripts/playerWB.gd" id="1_oc1go"]
 [ext_resource type="PackedScene" uid="uid://yqsxtks5026a" path="res://Scenes/hot_bubble.tscn" id="2_3qo4a"]
 [ext_resource type="Texture2D" uid="uid://chxmfb5bmdhbi" path="res://Assets/1 Pink_Monster/Pink_Monster_Idle_4.png" id="2_rvgrx"]
 [ext_resource type="PackedScene" uid="uid://cwceianb7k7la" path="res://Scenes/cold_bubble.tscn" id="3_13w8v"]
+[ext_resource type="PackedScene" uid="uid://dfj7eylrwrasl" path="res://Scenes/lightning.tscn" id="4_ps6v0"]
 [ext_resource type="Texture2D" uid="uid://bhc22qs181dak" path="res://Weapon.png" id="4_s5r3e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g33x0"]
@@ -47,11 +48,10 @@ radius = 7.07107
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(5, 3)
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_oc1go")
 hot_bubble_scene = ExtResource("2_3qo4a")
 cold_bubble_scene = ExtResource("3_13w8v")
+lightning_scene = ExtResource("4_ps6v0")
 
 [node name="gun" type="Sprite2D" parent="."]
 z_index = 1
@@ -70,7 +70,12 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
 y_sort_enabled = true
 position = Vector2(-13, -9)
 shape = SubResource("CircleShape2D_61qk1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

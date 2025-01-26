@@ -15,8 +15,8 @@ var start = Vector2i(0,0)
 var temp = 0
 
 func _process(delta: float) -> void:
-	temp = data.hot_bubbles - data.cold_bubbles
+	temp = data.get_temp()
 	if temp <= 55 and temp >= -55:
 		label.text = str(temp)+"°C"
 		indicator.position = Vector2i(temp,0)
-	print(temp)
+		

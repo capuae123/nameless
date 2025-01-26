@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://fnnc8y4y13ls"]
+
+[ext_resource type="Script" path="res://Scripts/wander_control.gd" id="1_h1dl7"]
+
+[node name="wander_control" type="Node"]
+script = ExtResource("1_h1dl7")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

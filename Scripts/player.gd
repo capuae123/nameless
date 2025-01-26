@@ -14,6 +14,7 @@ var can_spawn_bubble: bool = true  # Prevent spamming
 var combined_keys_timer: float = 0.0
 @export var required_hold_time: float = 2.0
 
+
 @export var MAX_HEALTH = 5  # Now it's 5 for health bars
 var health = MAX_HEALTH
 

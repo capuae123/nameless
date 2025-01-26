@@ -1,5 +1,5 @@
 
-[gd_scene load_steps=24 format=4 uid="uid://bpbcp4ckgnid0"]
+[gd_scene load_steps=25 format=4 uid="uid://bpbcp4ckgnid0"]
 
 
 [ext_resource type="TileSet" uid="uid://bh3hbpf3lukap" path="res://TileSet.tres" id="1_y2rrm"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://tkrpyeqq7ver" path="res://Assets/health_four.png" id="7_fvefa"]
 [ext_resource type="Script" path="res://Scenes/cloud_and_rain.gd" id="12_f7ayy"]
 [ext_resource type="Texture2D" uid="uid://b5cksdv7q2tby" path="res://Assets/Cloud.png" id="13_alfbf"]
+[ext_resource type="FontFile" uid="uid://dduptoo1qbjb5" path="res://PixelatedPusab.ttf" id="14_u3y2g"]
 [ext_resource type="Texture2D" uid="uid://d3uq7j2ytvngi" path="res://Scenes/WhatsApp Image 2025-01-26 at 16.51.16_af2b73bf.jpg" id="15_gdgvt"]
 [ext_resource type="Script" path="res://Scenes/skibb.gd" id="16_i2t3m"]
 [ext_resource type="AudioStream" uid="uid://e02xar6k6o0u" path="res://Scenes/skibbbi.mp3" id="16_x2l3p"]
@@ -112,6 +113,7 @@ offset_top = -87.0
 offset_right = 43.0
 offset_bottom = -64.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("14_u3y2g")
 text = "Press W,A,S,D to move"
 
 [node name="Label2" type="Label" parent="Labels"]
@@ -121,6 +123,7 @@ offset_top = 67.0
 offset_right = -151.54
 offset_bottom = 116.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("14_u3y2g")
 text = "Press Q to release 
 Heat bubbles"
 
@@ -131,6 +134,7 @@ offset_top = 98.0
 offset_right = -217.0
 offset_bottom = 147.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("14_u3y2g")
 text = "Press E to release 
 Cold Bubbles"
 
@@ -141,6 +145,7 @@ offset_top = 160.0
 offset_right = 56.0
 offset_bottom = 209.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("14_u3y2g")
 text = "DO NOT ENTER!!!
 MONSTER AHEAD"
 
@@ -151,6 +156,7 @@ offset_top = 95.0
 offset_right = -393.0
 offset_bottom = 170.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("14_u3y2g")
 text = "By releasing Bubbles
 We can alter the 
 weather"
@@ -164,6 +170,7 @@ offset_top = 184.0
 offset_right = -535.0
 offset_bottom = 259.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("14_u3y2g")
 text = "Kill the enemy By
 Shooting a
 lightning Bubble"
@@ -177,6 +184,7 @@ offset_top = 210.0
 offset_right = -538.0
 offset_bottom = 285.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("14_u3y2g")
 text = "Hold Q and E"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -208,5 +216,6 @@ shape = SubResource("RectangleShape2D_7juxe")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TextureRect/Area2D"]
 position = Vector2(29, 121)
 stream = ExtResource("16_x2l3p")
+volume_db = 10.022
 area_mask = 0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dw2stycm5ra3"]
+[gd_scene load_steps=20 format=3 uid="uid://dw2stycm5ra3"]
 
 [ext_resource type="Texture2D" uid="uid://bhc22qs181dak" path="res://Weapon.png" id="2_3hhhg"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_fdsfx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dpqu0qq6pby7u" path="res://Assets/Updates walk,front.PNG" id="3_y6x36"]
 [ext_resource type="PackedScene" uid="uid://dfj7eylrwrasl" path="res://Scenes/lightning.tscn" id="4_uf5dl"]
 [ext_resource type="AudioStream" uid="uid://cwspk0cy7hjod" path="res://Audio/MC walking.wav" id="5_qnk85"]
+[ext_resource type="AudioStream" uid="uid://btrytsg53l50l" path="res://Audio/buuble.mp3" id="9_5s3fn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1d4v"]
 atlas = ExtResource("2_u8u21")
@@ -120,3 +121,6 @@ shape = SubResource("CircleShape2D_61qk1")
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qnk85")
+
+[node name="BubbleSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_5s3fn")

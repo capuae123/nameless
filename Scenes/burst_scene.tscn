@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c52lmyl8yfy31"]
+[gd_scene load_steps=9 format=3 uid="uid://c52lmyl8yfy31"]
 
 [ext_resource type="Script" path="res://Scripts/cold_bubble.gd" id="1_jyi8j"]
 [ext_resource type="Texture2D" uid="uid://t4ufj1cuogki" path="res://Bubble Animation.png" id="2_atmfw"]
+[ext_resource type="AudioStream" uid="uid://dihh3k7hx0y8d" path="res://Audio/BUBBLE POP.mp3" id="3_y3rd1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1u5x"]
 atlas = ExtResource("2_atmfw")
@@ -41,8 +42,6 @@ animations = [{
 
 [node name="BurstBubble" type="Node2D"]
 script = ExtResource("1_jyi8j")
-burst_scene = null
-
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -51,3 +50,6 @@ scale = Vector2(0.578125, 0.5625)
 sprite_frames = SubResource("SpriteFrames_4pmc4")
 animation = &"burst"
 autoplay = "burst"
+
+[node name="PopSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y3rd1")

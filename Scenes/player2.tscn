@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/playerWB.gd" id="1_oc1go"]
 [ext_resource type="PackedScene" uid="uid://yqsxtks5026a" path="res://Scenes/hot_bubble.tscn" id="2_3qo4a"]
 [ext_resource type="Texture2D" uid="uid://chxmfb5bmdhbi" path="res://Assets/1 Pink_Monster/Pink_Monster_Idle_4.png" id="2_rvgrx"]
-[ext_resource type="PackedScene" uid="uid://cwceianb7k7la" path="res://Scenes/cold_bubble.tscn" id="3_13w8v"]
+[ext_resource type="PackedScene" uid="uid://c4c7sciia0ntj" path="res://Scenes/cold_bubble.tscn" id="3_13w8v"]
 [ext_resource type="PackedScene" uid="uid://dfj7eylrwrasl" path="res://Scenes/lightning.tscn" id="4_ps6v0"]
 [ext_resource type="Texture2D" uid="uid://bhc22qs181dak" path="res://Weapon.png" id="4_s5r3e"]
 
@@ -76,6 +76,7 @@ shape = SubResource("CircleShape2D_61qk1")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

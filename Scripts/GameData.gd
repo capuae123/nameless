@@ -1,7 +1,5 @@
 extends Node
 
-signal temperature_changed(new_temp: int)  # Declare signal at the top level
-
 var energy = 0
 var temp = 0
 var hot_bubbles = 0
@@ -16,33 +14,28 @@ func add_energy() -> void:
 
 # Consumes energy by N amount
 func use_energy(n: int) -> void:
-	if n <= energy:
+	if n<=energy:
 		energy -= n
 
 func hot_bubble():
 	hot_bubbles += 1
-	emit_temperature_changed()
 
 func cold_bubble():
 	cold_bubbles += 1
-	emit_temperature_changed()
 
 func electric_bubbles():
 	electric_bubble += 1
 
-func get_temp() -> int:
+func get_temp():
 	temp = hot_bubbles - cold_bubbles
-	temp = clamp(temp, -55, 55)  # Clamp the temperature within -55 to 55
-	return temp
+	if temp <= 55 and temp >= -55:
+		return temp
+	else:
+		if temp > 55:
+			temp = 55
+		elif temp < -55:
+			temp = -55
+		return temp
 
-func change_temp(n: int) -> void:
+func  change_temp(n):
 	temp += n
-	temp = clamp(temp, -55, 55)  # Clamp the temperature within -55 to 55
-	emit_temperature_changed()
-	
-
-# Emit the temperature_changed signal
-func emit_temperature_changed() -> void:
-	temp = get_temp()
-	emit_signal("temperature_changed", temp)
-	print(temp)

@@ -1,10 +1,10 @@
 extends Node
 
-@export var wander_range=32
+@export var wander_range = 32
 
-@onready var start_pos=get_parent().global_position
-@onready var target_pos=get_parent().global_position
-@onready var timer=$Timer
+@onready var start_pos = get_parent().global_position
+@onready var target_pos = get_parent().global_position
+@onready var timer = $Timer
 
 
 func _ready():
@@ -13,7 +13,7 @@ func _ready():
 
 func update_target_position():
 	var target_vector=Vector2(randf_range(-wander_range,wander_range),randf_range(-wander_range,wander_range))
-	target_pos=start_pos+target_vector
+	target_pos = start_pos + target_vector
 
 
 func get_time_left():
@@ -22,6 +22,7 @@ func get_time_left():
 
 func start_wander_timer(duration):
 	timer.start(duration)
+
 
 
 func _on_timer_timeout() -> void:

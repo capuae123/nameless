@@ -48,8 +48,6 @@ radius = 7.07107
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(5, 3)
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_oc1go")
 hot_bubble_scene = ExtResource("2_3qo4a")
 cold_bubble_scene = ExtResource("3_13w8v")
@@ -72,7 +70,6 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
 y_sort_enabled = true
 position = Vector2(-13, -9)
 shape = SubResource("CircleShape2D_61qk1")

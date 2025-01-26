@@ -9,9 +9,10 @@ Also starts a timer to respawn player when health reaches 0.
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body.take_dmg(get_parent().enemy_dmg)
-	if body.health <= 0:
-		timer.start()
+	#body.take_dmg(get_parent().enemy_dmg)
+	#if body.health <= 0:
+		#timer.start()
+	print("Inside Killzone")
 
 
 func _on_timer_timeout() -> void:

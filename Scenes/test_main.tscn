@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bahxxvipa461d" path="res://Scenes/btn_weapon_upgrade.tscn" id="4_qm01f"]
 [ext_resource type="PackedScene" uid="uid://d2cv6hnmgu3mf" path="res://Scenes/temp_bar.tscn" id="5_4wlmg"]
 [ext_resource type="PackedScene" uid="uid://dhistymeniayq" path="res://Scenes/player2.tscn" id="6_n83yk"]
-[ext_resource type="PackedScene" uid="uid://bqtbrh6b4slei" path="res://Scenes/boar.tscn" id="7_pfa53"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -33,6 +32,7 @@ scale = Vector2(2, 2)
 
 [node name="Player2" parent="." instance=ExtResource("6_n83yk")]
 position = Vector2(466, 233)
+
 scale = Vector2(2, 2)
 
 [node name="boar" parent="." instance=ExtResource("7_pfa53")]

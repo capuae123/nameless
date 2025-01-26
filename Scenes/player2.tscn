@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://btihwpqdp87ys"]
 
 [ext_resource type="Script" path="res://Scripts/playerWB.gd" id="1_oc1go"]
-[ext_resource type="PackedScene" path="res://Scenes/hot_bubble.tscn" id="2_3qo4a"]
+[ext_resource type="PackedScene" uid="uid://yqsxtks5026a" path="res://Scenes/hot_bubble.tscn" id="2_3qo4a"]
 [ext_resource type="Texture2D" uid="uid://chxmfb5bmdhbi" path="res://Assets/1 Pink_Monster/Pink_Monster_Idle_4.png" id="2_rvgrx"]
 [ext_resource type="PackedScene" uid="uid://c4c7sciia0ntj" path="res://Scenes/cold_bubble.tscn" id="3_13w8v"]
 [ext_resource type="PackedScene" uid="uid://dfj7eylrwrasl" path="res://Scenes/lightning.tscn" id="4_ps6v0"]

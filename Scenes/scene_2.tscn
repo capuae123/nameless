@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fh7e4y7nm764"]
+
+[ext_resource type="PackedScene" uid="uid://brgoc2dctpp0r" path="res://Scenes/Forest.tscn" id="1_mbb1l"]
+[ext_resource type="PackedScene" uid="uid://btihwpqdp87ys" path="res://Scenes/player2.tscn" id="2_p4jn2"]
+[ext_resource type="PackedScene" uid="uid://poixtnmp3j55" path="res://Scenes/deer.tscn" id="3_lwfy0"]
+
+[node name="Scene2" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_mbb1l")]
+position = Vector2(574, 311)
+
+[node name="Player" parent="." instance=ExtResource("2_p4jn2")]
+position = Vector2(335, 325)
+
+[node name="deer" parent="." instance=ExtResource("3_lwfy0")]
+position = Vector2(509, 137)
+
+[node name="deer2" parent="." instance=ExtResource("3_lwfy0")]
+position = Vector2(770, 289)
